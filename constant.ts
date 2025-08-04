@@ -19,11 +19,19 @@ import catProduct2 from "@/assets/catProducts/p2.jpg";
 import catProduct3 from "@/assets/catProducts/p3.jpg";
 import user from "@/assets/user/user.svg";
 
+import beachImage from "@/assets/meditation-images/beach.webp";
+import meditatingUnderTree from "@/assets/meditation-images/meditate-under-tree.webp";
+import riverImage from "@/assets/meditation-images/river.webp";
+import treeImage from "@/assets/meditation-images/trees.webp";
+import waterfall from "@/assets/meditation-images/waterfall.webp";
+import yosemiteStars from "@/assets/meditation-images/yosemite-stars.webp";
+
 export {
   bannerProduct1,
   bannerProduct2,
   bannerProduct3,
   bannerProduct4,
+  beachImage,
   cat1,
   cat2,
   cat3,
@@ -33,6 +41,11 @@ export {
   mainBanner,
   mainBanner2,
   mainBanner3,
+  meditatingUnderTree,
+  riverImage,
   subBanner,
+  treeImage,
   user,
+  waterfall,
+  yosemiteStars,
 };

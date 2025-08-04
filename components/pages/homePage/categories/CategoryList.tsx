@@ -1,39 +1,22 @@
-import React, { useEffect, useRef, useState } from "react";
-import { FlatList, View } from "react-native";
+import React from "react";
+import { FlatList, Text, View } from "react-native";
 import CategoryItem from "./CategoryItem";
 
-const CategoryList = ({ categories }: { categories: any[] }) => {
-  const flatListRef = useRef<FlatList>(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const nextIndex = (currentIndex + 1) % categories.length;
-      flatListRef.current?.scrollToIndex({ index: nextIndex, animated: true });
-      setCurrentIndex(nextIndex);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [currentIndex, categories.length]);
-
+const CategoryList = ({ categories }: { categories: any }) => {
   return (
-    <View className="py-3">
+    <View className="py-10">
+      <Text className="mb-4 text-center text-3xl font-bold">Categories</Text>
       <FlatList
-        ref={flatListRef}
         horizontal
         showsHorizontalScrollIndicator={false}
         data={categories}
-        keyExtractor={(item) => item.id.toString()}
+        keyExtractor={(item) => item?.id?.toString()}
         renderItem={({ item }) => <CategoryItem {...item} />}
         contentContainerStyle={{
-          paddingHorizontal: 12,
-          gap: 12,
+          paddingBlock: 10,
+          paddingHorizontal: 10,
+          gap: 10,
         }}
-        getItemLayout={(_, index) => ({
-          length: 80,
-          offset: 80 * index,
-          index,
-        })}
       />
     </View>
   );
