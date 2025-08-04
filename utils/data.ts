@@ -191,3 +191,81 @@ export const allCategoriesProducts = [
     image: catProduct3,
   },
 ];
+
+export const categories = [
+  {
+    id: 1,
+    name: "Electronics",
+    image: bannerProduct2,
+  },
+  {
+    id: 2,
+    name: "Fashion",
+    image: catProduct1,
+  },
+  {
+    id: 3,
+    name: "Home & Kitchen",
+    image: bannerProduct3,
+  },
+  {
+    id: 4,
+    name: "Beauty & Health",
+    image: catProduct3,
+  },
+  {
+    id: 5,
+    name: "Sports & Outdoors",
+    image: bannerProduct1,
+  },
+  {
+    id: 6,
+    name: "Books",
+    image: catProduct2,
+  },
+  {
+    id: 7,
+    name: "Toys & Games",
+    image: bannerProduct4,
+  },
+  {
+    id: 8,
+    name: "Automotive",
+    image: catProduct1,
+  },
+  {
+    id: 9,
+    name: "Groceries",
+    image: bannerProduct3,
+  },
+  {
+    id: 10,
+    name: "Pet Supplies",
+    image: catProduct2,
+  },
+  {
+    id: 11,
+    name: "Baby Products",
+    image: bannerProduct1,
+  },
+  {
+    id: 12,
+    name: "Office Supplies",
+    image: bannerProduct2,
+  },
+  {
+    id: 13,
+    name: "Footwear",
+    image: catProduct3,
+  },
+  {
+    id: 14,
+    name: "Jewelry & Accessories",
+    image: bannerProduct4,
+  },
+  {
+    id: 15,
+    name: "Gaming",
+    image: catProduct1,
+  },
+];

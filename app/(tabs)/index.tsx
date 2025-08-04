@@ -1,10 +1,12 @@
+import CategoryList from "@/components/pages/homePage/categories/CategoryList";
+import { categories } from "@/utils/data";
 import React from "react";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 
 const HomePage = () => {
   return (
     <View>
-      <Text>Hello</Text>
+      <CategoryList categories={categories} />
     </View>
   );
 };
