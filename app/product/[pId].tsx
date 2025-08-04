@@ -1,11 +1,13 @@
+import { useLocalSearchParams } from "expo-router";
 import React from "react";
-import { Text, View } from "react-native";
+import { SafeAreaView, Text } from "react-native";
 
 const ProductDetails = () => {
+  const { pId } = useLocalSearchParams();
   return (
-    <View>
-      <Text>ProductDetails</Text>
-    </View>
+    <SafeAreaView>
+      <Text>{pId}</Text>
+    </SafeAreaView>
   );
 };
 
