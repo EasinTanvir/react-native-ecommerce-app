@@ -34,9 +34,23 @@ const TabLayout = () => {
         }}
       />
       <Tabs.Screen
+        name="search"
+        options={{
+          tabBarShowLabel: false,
+          header: () => <Header />,
+          tabBarIcon: ({ size, focused }) => (
+            <TabBarIcon
+              size={21}
+              focused={focused}
+              name="Search"
+              iconName="search"
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
         name="categories"
         options={{
-          headerShown: false,
           header: () => <Header />,
           tabBarShowLabel: false,
           tabBarIcon: ({ size, focused }) => (
@@ -52,7 +66,6 @@ const TabLayout = () => {
       <Tabs.Screen
         name="cart"
         options={{
-          headerShown: false,
           tabBarShowLabel: false,
           header: () => <Header />,
           tabBarIcon: ({ size, focused }) => (
@@ -67,25 +80,8 @@ const TabLayout = () => {
       />
 
       <Tabs.Screen
-        name="search"
-        options={{
-          headerShown: false,
-          tabBarShowLabel: false,
-          header: () => <Header />,
-          tabBarIcon: ({ size, focused }) => (
-            <TabBarIcon
-              size={21}
-              focused={focused}
-              name="Search"
-              iconName="search"
-            />
-          ),
-        }}
-      />
-      <Tabs.Screen
         name="profile"
         options={{
-          headerShown: false,
           tabBarShowLabel: false,
           header: () => <Header />,
           tabBarIcon: ({ size, focused }) => (
@@ -101,7 +97,6 @@ const TabLayout = () => {
       <Tabs.Screen
         name="wishlist"
         options={{
-          headerShown: false,
           header: () => <Header />,
           href: null,
           tabBarShowLabel: false,
