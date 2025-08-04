@@ -65,11 +65,11 @@ const LogIn = () => {
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       keyboardVerticalOffset={Platform.OS === "ios" ? 80 : 0}
-      className="flex-1 flex  items-center justify-center mx-4 py-20"
+      className="flex-1 flex  items-center justify-center mx-4"
     >
       <View className="bg-white px-6 py-10 justify-center h-fit w-full  max-w-[450px]  rounded-lg">
         <Text className="text-2xl font-bold text-center text-gray-800">
-          LogIn Here
+          LogIn Heress
         </Text>
         <Text className="text-center text-gray-500 mb-5">
           Enter your credentials to Login
@@ -159,7 +159,6 @@ const LogIn = () => {
         <Text className="text-center text-sm text-gray-700 mt-4">
           Don't have an account?
           <Link
-            onPress={() => router.back()}
             href="/register"
             className="text-brandColor font-semibold underline"
           >

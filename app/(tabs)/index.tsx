@@ -3,15 +3,15 @@ import CategoryList from "@/components/pages/homePage/categories/CategoryList";
 import ProductList from "@/components/pages/homePage/products/ProductList";
 import { allCategoriesProducts, categories } from "@/utils/data";
 import React from "react";
-import { ScrollView } from "react-native";
+import { View } from "react-native";
 
 const HomePage = () => {
   return (
-    <ScrollView className="px-2">
+    <View className="px-2">
       <CarouselSlider />
       <CategoryList categories={categories} />
       <ProductList allCategoriesProducts={allCategoriesProducts} />
-    </ScrollView>
+    </View>
   );
 };
 
