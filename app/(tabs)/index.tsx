@@ -1,15 +1,17 @@
 import CarouselSlider from "@/components/pages/homePage/carousel/Carousel";
 import CategoryList from "@/components/pages/homePage/categories/CategoryList";
-import { categories } from "@/utils/data";
+import ProductList from "@/components/pages/homePage/products/ProductList";
+import { allCategoriesProducts, categories } from "@/utils/data";
 import React from "react";
-import { View } from "react-native";
+import { ScrollView } from "react-native";
 
 const HomePage = () => {
   return (
-    <View>
+    <ScrollView className="px-2">
       <CarouselSlider />
       <CategoryList categories={categories} />
-    </View>
+      <ProductList allCategoriesProducts={allCategoriesProducts} />
+    </ScrollView>
   );
 };
 
