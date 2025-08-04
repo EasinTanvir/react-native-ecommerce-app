@@ -1,15 +1,19 @@
+import Header from "@/components/Header";
 import TabBarIcon from "@/components/TabBarIcon";
 import { brandColor } from "@/constant";
 import { Tabs } from "expo-router";
 import React from "react";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const TabLayout = () => {
+  const insets = useSafeAreaInsets();
   return (
     <Tabs
       screenOptions={{
         tabBarStyle: {
           backgroundColor: brandColor,
           paddingTop: 14,
+          paddingBottom: insets.bottom,
         },
         tabBarItemStyle: {},
       }}
@@ -17,8 +21,8 @@ const TabLayout = () => {
       <Tabs.Screen
         name="index"
         options={{
-          headerShown: false,
           tabBarShowLabel: false,
+          header: () => <Header />,
           tabBarIcon: ({ size, focused }) => (
             <TabBarIcon
               size={20}
@@ -33,6 +37,7 @@ const TabLayout = () => {
         name="categories"
         options={{
           headerShown: false,
+          header: () => <Header />,
           tabBarShowLabel: false,
           tabBarIcon: ({ size, focused }) => (
             <TabBarIcon
@@ -49,6 +54,7 @@ const TabLayout = () => {
         options={{
           headerShown: false,
           tabBarShowLabel: false,
+          header: () => <Header />,
           tabBarIcon: ({ size, focused }) => (
             <TabBarIcon
               size={24}
@@ -59,25 +65,44 @@ const TabLayout = () => {
           ),
         }}
       />
+
+      <Tabs.Screen
+        name="search"
+        options={{
+          headerShown: false,
+          tabBarShowLabel: false,
+          header: () => <Header />,
+          tabBarIcon: ({ size, focused }) => (
+            <TabBarIcon
+              size={21}
+              focused={focused}
+              name="Search"
+              iconName="search"
+            />
+          ),
+        }}
+      />
       <Tabs.Screen
         name="profile"
         options={{
           headerShown: false,
           tabBarShowLabel: false,
+          header: () => <Header />,
           tabBarIcon: ({ size, focused }) => (
             <TabBarIcon
               size={24}
               focused={focused}
-              name="LogIn"
+              name="Profile"
               iconName="log-in"
             />
           ),
         }}
       />
       <Tabs.Screen
-        name="search"
+        name="wishlist"
         options={{
           headerShown: false,
+          header: () => <Header />,
           href: null,
           tabBarShowLabel: false,
         }}

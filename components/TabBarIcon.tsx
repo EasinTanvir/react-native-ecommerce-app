@@ -5,7 +5,7 @@ import { Text, View } from "react-native";
 
 const TabBarIcon = ({ name, iconName, focused, size }: TabIconProps) => {
   return (
-    <View className="flex flex-col items-center justify-center space-y-1 min-w-[100px]">
+    <View className="flex flex-col items-center justify-center  gap-1 min-w-[100px]">
       <Ionicons
         name={iconName}
         size={size}
