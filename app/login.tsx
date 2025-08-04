@@ -40,21 +40,27 @@ const LogIn = () => {
   const onSubmit = async (data: LoginData) => {
     try {
       setLoading(true);
-      const { data: res } = await apiInstance.post("/user/login", data);
+      const { data: res } = await apiInstance.post("/api/login", data);
       Toast.show({
         type: "success",
         text1: "LogIn Success",
       });
-      router.push("/login");
+      router.push("/");
+
+      console.log("res", res);
 
       // await AsyncStorage.setItem("authUser", JSON.stringify(res));
-
-      router.push("/");
     } catch (err: any) {
-      Toast.show({
-        type: "error",
-        text1: err?.response?.data?.message || "Internal Server error",
-      });
+      if (err?.response?.data?.email) {
+        setError("email", { message: err.response.data.email });
+      } else if (err?.response?.data?.password) {
+        setError("password", { message: err.response.data.password });
+      } else {
+        Toast.show({
+          type: "error",
+          text1: "Internal Server error",
+        });
+      }
 
       console.error("register ERror", err);
     } finally {

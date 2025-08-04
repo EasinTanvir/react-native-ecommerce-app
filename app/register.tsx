@@ -30,7 +30,6 @@ const Register = () => {
     defaultValues: {
       username: "",
       email: "",
-      phone: "",
       password: "",
     },
     mode: "onTouched",
@@ -43,7 +42,7 @@ const Register = () => {
   const onSubmit = async (data: LoginData) => {
     try {
       setLoading(true);
-      const { data: res } = await apiInstance.post("/user/register", data);
+      const { data: res } = await apiInstance.post("/api/register", data);
       Toast.show({
         type: "success",
         text1: res.message || "Success",
@@ -52,8 +51,6 @@ const Register = () => {
     } catch (err: any) {
       if (err?.response?.data?.email) {
         setError("email", { message: err.response.data.email });
-      } else if (err.response.data.phone) {
-        setError("phone", { message: err.response.data.phone });
       } else {
         Toast.show({
           type: "error",
@@ -149,37 +146,7 @@ const Register = () => {
             </>
           )}
         />
-        {/* Phone Field */}
-        <Controller
-          control={control}
-          name="phone"
-          rules={{
-            required: "Phone number is required",
-            // pattern: {
-            //   value: /^[0-9]{10,15}$/,
-            //   message: "Enter a valid phone number",
-            // },
-          }}
-          render={({ field: { onChange, value } }) => (
-            <>
-              <TextInput
-                className={`border rounded-md px-3 py-3 mt-4 text-gray-800 ${
-                  errors.phone ? "border-red-500" : "border-gray-400"
-                }`}
-                placeholder="Enter your phone number"
-                keyboardType="phone-pad"
-                placeholderTextColor="black"
-                onChangeText={onChange}
-                value={value}
-              />
-              {errors.phone && (
-                <Text className="text-red-500 text-sm mt-1">
-                  {errors.phone.message}
-                </Text>
-              )}
-            </>
-          )}
-        />
+
         {/* Password Field */}
         <Controller
           control={control}
