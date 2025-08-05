@@ -1,7 +1,9 @@
 import Errors from "@/components/Errors";
 import Loaders from "@/components/Loaders";
+import { useGlobalContext } from "@/contextApis/GlobalContext";
 import { useGetSingleProducts } from "@/hooks/useQuery";
 import { Feather, FontAwesome } from "@expo/vector-icons";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useLocalSearchParams } from "expo-router";
 import React from "react";
 import {
@@ -15,12 +17,34 @@ import {
 
 const ProductDetails = () => {
   const { pId } = useLocalSearchParams();
+  const { cartItems, setCartItems } = useGlobalContext();
 
   const {
     data: product,
     isLoading: loadingProducts,
     error: productError,
   } = useGetSingleProducts(pId as string, !!pId);
+
+  const handleAddToCart = async () => {
+    try {
+      if (!product) return;
+
+      const exists = cartItems.find((item) => item.id === product.id);
+      if (exists) {
+        alert("This product is already in your cart.");
+        return;
+      }
+
+      const updatedCart = [...cartItems, product];
+      setCartItems(updatedCart);
+      await AsyncStorage.setItem("cartItems", JSON.stringify(updatedCart));
+
+      alert("Added to cart successfully!");
+    } catch (error) {
+      console.error("Error adding to cart:", error);
+      alert("Failed to add to cart. Please try again.");
+    }
+  };
 
   if (loadingProducts) return <Loaders />;
   if (productError) return <Errors />;
@@ -68,7 +92,10 @@ const ProductDetails = () => {
 
           {/* Buttons */}
           <View className="flex-row justify-between gap-4">
-            <TouchableOpacity className="flex-1 bg-brandColor py-3 rounded-xl">
+            <TouchableOpacity
+              onPress={handleAddToCart}
+              className="flex-1 bg-brandColor py-3 rounded-xl"
+            >
               <Text className="text-white text-center font-medium text-base">
                 Add to Cart
               </Text>

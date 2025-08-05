@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import { GlobalContextProvider } from "@/contextApis/GlobalContext";
 import QueryProvider from "@/providers/QueryProvider";
 import { Stack } from "expo-router";
 import Toast from "react-native-toast-message";
@@ -38,7 +39,9 @@ const LayoutWrapper = () => {
 export default function RootLayout() {
   return (
     <QueryProvider>
-      <LayoutWrapper />
+      <GlobalContextProvider>
+        <LayoutWrapper />
+      </GlobalContextProvider>
     </QueryProvider>
   );
 }

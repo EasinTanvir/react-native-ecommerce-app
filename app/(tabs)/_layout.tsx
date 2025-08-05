@@ -1,12 +1,14 @@
 import Header from "@/components/Header";
 import TabBarIcon from "@/components/TabBarIcon";
 import { brandColor } from "@/constant";
+import { useGlobalContext } from "@/contextApis/GlobalContext";
 import { Tabs } from "expo-router";
 import React from "react";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const TabLayout = () => {
   const insets = useSafeAreaInsets();
+  const { cartItems } = useGlobalContext();
   return (
     <Tabs
       screenOptions={{
@@ -66,7 +68,10 @@ const TabLayout = () => {
       <Tabs.Screen
         name="cart"
         options={{
+          tabBarBadge: cartItems.length,
+          tabBarBadgeStyle: { top: -10, left: 18 },
           tabBarShowLabel: false,
+
           header: () => <Header />,
           tabBarIcon: ({ size, focused }) => (
             <TabBarIcon
