@@ -16,3 +16,11 @@ export async function POST(request: Request) {
     return Response.json({ error: "Product creation failed" }, { status: 500 });
   }
 }
+export async function GET(request: Request) {
+  try {
+    const products = await prisma.product.findMany();
+    return Response.json(products, { status: 200 });
+  } catch (err) {
+    return Response.json({ error: "Product fetch failed" }, { status: 500 });
+  }
+}

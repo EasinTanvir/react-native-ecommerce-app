@@ -19,3 +19,11 @@ export async function POST(request: Request) {
     );
   }
 }
+export async function GET() {
+  try {
+    const categories = await prisma.category.findMany();
+    return Response.json(categories, { status: 200 });
+  } catch (err) {
+    return Response.json({ error: "Category fetch failed" }, { status: 500 });
+  }
+}
