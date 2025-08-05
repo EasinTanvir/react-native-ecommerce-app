@@ -10,7 +10,9 @@ import React, {
 
 type SearchContextType = {
   cartItems: Product[];
+  searchProduct: string;
   setCartItems: (value: Product[]) => void;
+  setSearchProduct: (value: string) => void;
 };
 
 const SearchContext = createContext<SearchContextType | undefined>(undefined);
@@ -21,6 +23,7 @@ type SearchProviderProps = {
 
 export const GlobalContextProvider = ({ children }: SearchProviderProps) => {
   const [cartItems, setCartItems] = useState<Product[]>([]);
+  const [searchProduct, setSearchProduct] = useState("");
 
   // Load from AsyncStorage on mount
   useEffect(() => {
@@ -39,7 +42,9 @@ export const GlobalContextProvider = ({ children }: SearchProviderProps) => {
   }, [cartItems]);
 
   return (
-    <SearchContext.Provider value={{ cartItems, setCartItems }}>
+    <SearchContext.Provider
+      value={{ cartItems, setCartItems, searchProduct, setSearchProduct }}
+    >
       {children}
     </SearchContext.Provider>
   );
