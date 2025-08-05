@@ -14,7 +14,7 @@ const ProductItem = ({
 }: Product) => {
   return (
     <Link
-      className="w-1/2 "
+      className="w-[49%]"
       href={{ pathname: "/product/[pId]", params: { pId: id } }}
     >
       <View className="mb-6 rounded-2xl  overflow-hidden ">

@@ -28,6 +28,26 @@ export const useGetProducts = (enabled = true) => {
     staleTime: 5 * 60 * 1000,
   });
 };
+export const useGetProductsByCategoryId = (
+  categoryId: string,
+  enabled = true
+) => {
+  return useQuery<Product[], AxiosError>({
+    queryKey: ["category-product", categoryId],
+    queryFn: async () => {
+      const { data } = await apiInstance.post<Product[]>(
+        "/api/category-product",
+        {
+          cId: categoryId,
+        }
+      );
+      return data;
+    },
+    enabled,
+    staleTime: 5 * 60 * 1000,
+  });
+};
+
 export const useGetSingleProducts = (productId: string, enabled = true) => {
   return useQuery<Product, AxiosError>({
     queryKey: ["products", productId],

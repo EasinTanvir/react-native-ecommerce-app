@@ -115,6 +115,14 @@ const TabLayout = () => {
           tabBarShowLabel: false,
         }}
       />
+      <Tabs.Screen
+        name="category/[cId]"
+        options={{
+          header: () => <Header />,
+          href: null,
+          tabBarShowLabel: false,
+        }}
+      />
     </Tabs>
   );
 };

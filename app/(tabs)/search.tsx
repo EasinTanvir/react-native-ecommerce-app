@@ -4,7 +4,7 @@ import { Text, View } from "react-native";
 const CartPage = () => {
   return (
     <View>
-      <Text>CartPage</Text>
+      <Text>search page</Text>
     </View>
   );
 };
