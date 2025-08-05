@@ -9,7 +9,7 @@ const LayoutWrapper = () => {
     <>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="product/[pId]" options={{ headerShown: false }} />
+
         <Stack.Screen
           name="login"
           options={{

@@ -20,7 +20,7 @@ const Header = ({ isAuth = false }: { isAuth?: boolean }) => {
 
       {!isAuth ? (
         <View className="flex-row items-center gap-4">
-          <Link href="/login">
+          <Link href="/wishlist">
             <Ionicons name="heart" color="white" size={26} />
           </Link>
           <Link href="/login">

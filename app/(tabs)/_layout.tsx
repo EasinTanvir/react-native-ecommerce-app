@@ -102,6 +102,14 @@ const TabLayout = () => {
           tabBarShowLabel: false,
         }}
       />
+      <Tabs.Screen
+        name="product/[pId]"
+        options={{
+          header: () => <Header />,
+          href: null,
+          tabBarShowLabel: false,
+        }}
+      />
     </Tabs>
   );
 };

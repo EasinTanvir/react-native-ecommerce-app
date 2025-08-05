@@ -26,7 +26,7 @@ const ProductDetails = () => {
   if (productError) return <Errors />;
 
   return (
-    <SafeAreaView className="flex-1 bg-white">
+    <SafeAreaView className="flex-1 bg-white my-4">
       <ScrollView className="px-4">
         {/* Product Image */}
         <Image
