@@ -22,6 +22,7 @@ interface Product {
   price: string;
   image: string;
   categoryId: string;
+  category?: Category;
 }
 
 export { Category, Product, TabIconProps };

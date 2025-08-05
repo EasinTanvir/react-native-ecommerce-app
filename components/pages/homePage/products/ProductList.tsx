@@ -1,5 +1,4 @@
 import Errors from "@/components/Errors";
-import Loaders from "@/components/Loaders";
 import { useGetProducts } from "@/hooks/useQuery";
 import React from "react";
 import { FlatList } from "react-native";
@@ -12,9 +11,9 @@ const ProductList = () => {
     error: productError,
   } = useGetProducts(true);
 
-  if (loadingProducts) {
-    return <Loaders />;
-  }
+  // if (loadingProducts) {
+  //   return <Loaders />;
+  // }
 
   if (productError) {
     return <Errors />;

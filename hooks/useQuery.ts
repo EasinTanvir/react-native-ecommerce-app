@@ -28,3 +28,14 @@ export const useGetProducts = (enabled = true) => {
     staleTime: 5 * 60 * 1000,
   });
 };
+export const useGetSingleProducts = (productId: string, enabled = true) => {
+  return useQuery<Product, AxiosError>({
+    queryKey: ["products", productId],
+    queryFn: async () => {
+      const { data } = await apiInstance.get<Product>(`/api/${productId}`);
+      return data;
+    },
+    enabled,
+    staleTime: 5 * 60 * 1000,
+  });
+};

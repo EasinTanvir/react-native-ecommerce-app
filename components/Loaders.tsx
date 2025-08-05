@@ -1,11 +1,11 @@
 import React from "react";
-import { ActivityIndicator, View } from "react-native";
+import { ActivityIndicator, SafeAreaView } from "react-native";
 
 const Loaders = () => {
   return (
-    <View className="my-10">
+    <SafeAreaView className="my-20">
       <ActivityIndicator />
-    </View>
+    </SafeAreaView>
   );
 };
 

@@ -34,6 +34,11 @@ const CategoryList = () => {
           paddingHorizontal: 10,
           gap: 10,
         }}
+        ListEmptyComponent={
+          <Text className="text-center text-gray-500">
+            No categories found.
+          </Text>
+        }
       />
     </View>
   );
