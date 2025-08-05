@@ -1,12 +1,25 @@
+import Errors from "@/components/Errors";
+import Loaders from "@/components/Loaders";
+import { useGetProducts } from "@/hooks/useQuery";
 import React from "react";
 import { FlatList } from "react-native";
 import ProductItem from "./ProductItem";
 
-const ProductList = ({
-  allCategoriesProducts,
-}: {
-  allCategoriesProducts: any[];
-}) => {
+const ProductList = () => {
+  const {
+    data: products,
+    isLoading: loadingProducts,
+    error: productError,
+  } = useGetProducts(true);
+
+  if (loadingProducts) {
+    return <Loaders />;
+  }
+
+  if (productError) {
+    return <Errors />;
+  }
+
   return (
     <FlatList
       scrollEnabled={false}
@@ -14,7 +27,7 @@ const ProductList = ({
       numColumns={2}
       columnWrapperStyle={{ gap: 10 }}
       keyExtractor={(item) => item?.id?.toString()}
-      data={allCategoriesProducts}
+      data={products}
       renderItem={({ item }) => <ProductItem key={item.id} {...item} />}
     />
   );

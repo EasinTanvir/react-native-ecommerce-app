@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import QueryProvider from "@/providers/QueryProvider";
 import { Stack } from "expo-router";
 import Toast from "react-native-toast-message";
 import "./global.css";
@@ -35,5 +36,9 @@ const LayoutWrapper = () => {
 };
 
 export default function RootLayout() {
-  return <LayoutWrapper />;
+  return (
+    <QueryProvider>
+      <LayoutWrapper />
+    </QueryProvider>
+  );
 }

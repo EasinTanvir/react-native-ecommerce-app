@@ -1,8 +1,25 @@
+import Errors from "@/components/Errors";
+import Loaders from "@/components/Loaders";
+import { useGetCategories } from "@/hooks/useQuery";
 import React from "react";
 import { FlatList, Text, View } from "react-native";
 import CategoryItem from "./CategoryItem";
 
-const CategoryList = ({ categories }: { categories: any }) => {
+const CategoryList = () => {
+  const {
+    data: categories,
+    isLoading: loadingCategories,
+    error: categoryError,
+  } = useGetCategories(true);
+
+  if (loadingCategories) {
+    return <Loaders />;
+  }
+
+  if (categoryError) {
+    return <Errors />;
+  }
+
   return (
     <View className="py-10">
       <Text className="mb-4 text-center text-3xl font-bold">Categories</Text>

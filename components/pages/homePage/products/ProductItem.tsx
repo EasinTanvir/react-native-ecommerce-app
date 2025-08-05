@@ -1,25 +1,17 @@
+import { Product } from "@/utils/types";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Link } from "expo-router";
 import React from "react";
-import {
-  Image,
-  ImageSourcePropType,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 
 const ProductItem = ({
   title,
+  description,
   price,
   image,
   id,
-}: {
-  id: string;
-  title: string;
-  price: number;
-  image: ImageSourcePropType;
-}) => {
+  categoryId,
+}: Product) => {
   return (
     <Link
       className="w-1/2 "
@@ -29,7 +21,7 @@ const ProductItem = ({
         <View className="w-full aspect-square rounded-t-2xl overflow-hidden">
           <Image
             className="w-full h-full"
-            source={image}
+            source={{ uri: image }}
             alt={title}
             resizeMode="cover"
           />
@@ -48,7 +40,7 @@ const ProductItem = ({
             </TouchableOpacity>
             <View>
               <Text className="ml-2 text-base font-semibold text-orange-700">
-                ${price.toFixed(2)}
+                ${Number(price).toFixed(2)}
               </Text>
             </View>
           </View>
